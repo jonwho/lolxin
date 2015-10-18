@@ -86,8 +86,6 @@ module Lolxin
     # Returns champions that are ...
     def self.something
       'something'
-
-
     end
   end
 end
