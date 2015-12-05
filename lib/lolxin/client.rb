@@ -12,7 +12,7 @@ module Lolxin
   class Client
     attr_reader :region
 
-    # api_key is parameter to necessary to make callls
+    # api_key parameter necessary to make api calls
     # options not provided means will set to defaults
     def initialize(api_key, options = {})
       @api_key = api_key
@@ -28,9 +28,5 @@ module Lolxin
     def champions
       Champions.new @api_key, @region
     end
-
-    private
-
-    attr_reader :api_key
   end
 end
