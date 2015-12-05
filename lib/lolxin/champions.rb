@@ -23,21 +23,21 @@ module Lolxin
       @region_api = "https://#{region}.api.pvp.net/api/lol/#{region}/" + Champions.api_version + "/champion"
       @static_api = "https://global.api.pvp.net/api/lol/static-data/#{region}/" + Champions.api_version + "/champion"
 
-      @region_champions_conn = Faraday.new(:url => "#{@region_api}",
-                                           :params => { :api_key => "#{api_key}"}) do |faraday|
-        faraday.request  :url_encoded
-        faraday.response :logger
-        faraday.adapter  Faraday.default_adapter
-      end
-      @static_champions_conn = Faraday.new(:url => "#{@static_api}",
-                                           :params => { :api_key => "#{api_key}"}) do |faraday|
-        faraday.request  :url_encoded
-        faraday.response :logger
-        faraday.adapter  Faraday.default_adapter
-      end
+      #@region_champions_conn = Faraday.new(:url => "#{@region_api}",
+                                           #:params => { :api_key => "#{api_key}"}) do |faraday|
+        #faraday.request  :url_encoded
+        #faraday.response :logger
+        #faraday.adapter  Faraday.default_adapter
+      #end
+      #@static_champions_conn = Faraday.new(:url => "#{@static_api}",
+                                           #:params => { :api_key => "#{api_key}"}) do |faraday|
+        #faraday.request  :url_encoded
+        #faraday.response :logger
+        #faraday.adapter  Faraday.default_adapter
+      #end
 
-      @region_champions = JSON.parse @region_champions_conn.get.body
-      @static_champions = JSON.parse @static_champions_conn.get.body
+      #@region_champions = JSON.parse @region_champions_conn.get.body
+      #@static_champions = JSON.parse @static_champions_conn.get.body
     end
 
     # Return champions that are in free rotation.
@@ -79,11 +79,6 @@ module Lolxin
     # Returns champions that are co-op bots disabled.
     def co_op_disabled
 
-    end
-
-    # Returns champions that are ...
-    def self.something
-      'something'
     end
   end
 end

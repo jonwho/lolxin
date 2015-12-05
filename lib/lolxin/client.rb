@@ -28,5 +28,10 @@ module Lolxin
     def champions
       Champions.new @api_key, @region
     end
+
+    # Returns a new Items instance.
+    def items
+      Items.new @api_key, @region
+    end
   end
 end
