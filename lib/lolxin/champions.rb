@@ -10,7 +10,7 @@ module Lolxin
     attr_reader :region_champions, :static_champions 
 
     def self.api_version
-      'v1.2'
+      Lolxin::ApiVersion::CHAMPION
     end
 
     # the json keys are strings because that's how the data gets moved back and forth
@@ -19,7 +19,7 @@ module Lolxin
     # order to access data properly! either find a ruby gem that does english stuffs
     # or make constants or some other method to make champion access easier
     # which might be a reoccurring problem with item names as well
-    def initialize( api_key, region )
+    def initialize(api_key, region)
       @region_api = "https://#{region}.api.pvp.net/api/lol/#{region}/" + Champions.api_version + "/champion"
       @static_api = "https://global.api.pvp.net/api/lol/static-data/#{region}/" + Champions.api_version + "/champion"
 

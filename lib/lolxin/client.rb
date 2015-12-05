@@ -16,7 +16,7 @@ module Lolxin
     # options not provided means will set to defaults
     def initialize(api_key, options = {})
       @api_key = api_key
-      @region = options[:region] || ApiVersion::REGION
+      @region = options[:region] || REGION
     end
 
     # Returns a new Champion instance.

@@ -9,7 +9,7 @@ module Lolxin
   class Champion
 
     def self.api_version
-      'v1.2'
+      Lolxin::ApiVersion::CHAMPION
     end
 
     # Calling Champion.new(<champ_name>) gives you an instance
