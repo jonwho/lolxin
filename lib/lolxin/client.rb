@@ -16,7 +16,8 @@ module Lolxin
     # options not provided means will set to defaults
     def initialize(api_key, options = {})
       @api_key = api_key
-      @region = options[:region] || REGION
+      region = validate_region(options[:region])
+      @region = region || Region::REGIONS[:NA]
     end
 
     # Returns a new Champion instance.
@@ -29,9 +30,13 @@ module Lolxin
       Champions.new @api_key, @region
     end
 
-    # Returns a new Items instance.
-    def items
-      Items.new @api_key, @region
+    private
+
+    # Returns country code if supported by Riot API else return false.
+    def validate_region(region)
+      return false if region.nil?
+      Region::REGIONS[region.upcase.to_sym] rescue "Expected String type but got #{region.class.name} instead."
     end
-  end
-end
+
+  end # Client
+end # Lolxin
