@@ -16,24 +16,30 @@ module Lolxin
     # or make constants or some other method to make champion access easier
     # which might be a reoccurring problem with item names as well
     def initialize(api_key, region)
-      @region_api = "https://#{region}.api.pvp.net/api/lol/#{region}/" + Champions.api_version + "/champion"
-      @static_api = "https://global.api.pvp.net/api/lol/static-data/#{region}/" + Champions.api_version + "/champion"
+      @region_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
+      @static_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?api_key=#{api_key}"
+      @region_champions = JSON.parse HTTParty.get(@region_api).body
+      @static_champions = JSON.parse HTTParty.get(@static_api).body
 
-      #@region_champions_conn = Faraday.new(:url => "#{@region_api}",
-                                           #:params => { :api_key => "#{api_key}"}) do |faraday|
-        #faraday.request  :url_encoded
-        #faraday.response :logger
-        #faraday.adapter  Faraday.default_adapter
-      #end
-      #@static_champions_conn = Faraday.new(:url => "#{@static_api}",
-                                           #:params => { :api_key => "#{api_key}"}) do |faraday|
-        #faraday.request  :url_encoded
-        #faraday.response :logger
-        #faraday.adapter  Faraday.default_adapter
-      #end
+      @active_champs = []
+      @free_rotation_champs = []
+      @rank_enabled_champs = []
+      @rank_disabled_champs = []
+      @bot_enabled_champs = []
+      @bot_disabled_champs = []
+      @co_op_enabled_champs = []
+      @co_op_disabled_champs = []
+    end
 
-      #@region_champions = JSON.parse @region_champions_conn.get.body
-      #@static_champions = JSON.parse @static_champions_conn.get.body
+    # Return champions that are active.
+    def active
+      if @active_champs.empty?
+        @region_champions['champions'].inject(@active_champs) do |memo, champ|
+          memo << champ if champ['active']
+          memo
+        end
+      end
+      @active_champs
     end
 
     # Return champions that are in free rotation.
@@ -42,39 +48,74 @@ module Lolxin
       # to the array instead of the id so that user
       # can make further calls on the Champion class
       # to get more info
-      @region_champions['champions'].inject([]) do |memo, champ|
-        memo << champ['id'] if champ['freeToPlay']
+
+      if @free_rotation_champs.empty?
+        @region_champions['champions'].inject(@free_rotation_champs) do |memo, champ|
+          memo << champ if champ['freeToPlay']
+          memo
+        end
       end
+      @free_rotation_champs
     end
 
     # Return champions that are rank enabled.
     def rank_enabled
-
+      if @rank_enabled_champs.empty?
+        @region_champions['champions'].each do |champ|
+          if champ['rankedPlayEnabled']
+            @rank_enabled_champs << champ
+          else
+            @rank_disabled_champs << champ
+          end
+        end
+      end
+      @rank_enabled_champs
     end
 
     # Return champions that are rank disabled.
     def rank_disabled
-
+      rank_enabled
+      @rank_disabled_champs
     end
 
     # Return champions that are bot enabled.
     def bot_enabled
-
+      if @bot_enabled_champs.empty?
+        @region_champions['champions'].each do |champ|
+          if champ['botEnabled']
+            @bot_enabled_champs << champ
+          else
+            @bot_disabled_champs << champ
+          end
+        end
+      end
+      @bot_enabled_champs
     end
 
     # Returns champions that are bot disabled.
     def bot_disabled
-
+      bot_enabled
+      @bot_disabled_champs
     end
 
     # Returns champions that are co-op bots enabled.
     def co_op_enabled
-
+      if @co_op_enabled_champs.empty?
+        @region_champions['champions'].each do |champ|
+          if champ['botMmEnabled']
+            @bot_enabled_champs << champ
+          else
+            @bot_disabled_champs << champ
+          end
+        end
+      end
+      @bot_enabled_champs
     end
 
     # Returns champions that are co-op bots disabled.
     def co_op_disabled
-
+      co_op_enabled
+      @co_op_disabled_champs
     end
   end
 end
