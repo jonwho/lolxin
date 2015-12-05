@@ -14,13 +14,13 @@ module Lolxin
 
     # api_key is parameter to necessary to make callls
     # options not provided means will set to defaults
-    def initialize( api_key, options = {} )
+    def initialize(api_key, options = {})
       @api_key = api_key
       @region = options[:region] || ApiVersion::REGION
     end
 
     # Returns a new Champion instance.
-    def champion( champion_name )
+    def champion( champion_name = nil )
       Champion.new @api_key, champion_name
     end
 

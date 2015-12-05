@@ -14,7 +14,8 @@ module Lolxin
 
     # Calling Champion.new(<champ_name>) gives you an instance
     # mapping to that champion.
-    def initialize( api_key, champion )
+    def initialize(api_key, champion)
+
     end
 
     private

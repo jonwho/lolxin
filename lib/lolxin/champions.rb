@@ -1,5 +1,3 @@
-require_relative 'api_version'
-
 module Lolxin
   # This returns the Champions object which contains data
   # about all the current champions from either static
@@ -22,8 +20,8 @@ module Lolxin
     # or make constants or some other method to make champion access easier
     # which might be a reoccurring problem with item names as well
     def initialize( api_key, region )
-      @region_api = "https://#{region}.api.pvp.net/api/lol/#{region}/" + api_version + "/champion"
-      @static_api = "https://global.api.pvp.net/api/lol/static-data/#{region}/" + api_version + "/champion"
+      @region_api = "https://#{region}.api.pvp.net/api/lol/#{region}/" + Champions.api_version + "/champion"
+      @static_api = "https://global.api.pvp.net/api/lol/static-data/#{region}/" + Champions.api_version + "/champion"
 
       @region_champions_conn = Faraday.new(:url => "#{@region_api}",
                                            :params => { :api_key => "#{api_key}"}) do |faraday|

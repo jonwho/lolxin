@@ -8,4 +8,7 @@ describe Lolxin::Champions do
   it 'should return API version' do
     expect(Lolxin::Champions.api_version).to eq('v1.2')
   end
+
+  it 'just testing champions api' do
+  end
 end
