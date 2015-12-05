@@ -8,10 +8,6 @@ module Lolxin
   # Champion.rb to use... think more laters
   class Champion
 
-    def self.api_version
-      Lolxin::ApiVersion::CHAMPION
-    end
-
     # Calling Champion.new(<champ_name>) gives you an instance
     # mapping to that champion.
     def initialize(api_key, champion)

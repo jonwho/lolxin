@@ -7,11 +7,7 @@ module Lolxin
   # will hold data that might become stale in the future
   # so must be careful when caching these instances.
   class Champions
-    attr_reader :region_champions, :static_champions 
-
-    def self.api_version
-      Lolxin::ApiVersion::CHAMPION
-    end
+    attr_reader :region_champions, :static_champions
 
     # the json keys are strings because that's how the data gets moved back and forth
     # cannot access with ruby symbols
