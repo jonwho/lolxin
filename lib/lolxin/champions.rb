@@ -7,7 +7,7 @@ module Lolxin
   # will hold data that might become stale in the future
   # so must be careful when caching these instances.
   class Champions
-    attr_reader :region_champions, :static_champions
+    attr_reader :champion_api_response, :lol_static_data_response
 
     # the json keys are strings because that's how the data gets moved back and forth
     # cannot access with ruby symbols
@@ -16,10 +16,12 @@ module Lolxin
     # or make constants or some other method to make champion access easier
     # which might be a reoccurring problem with item names as well
     def initialize(api_key, region)
-      @region_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
-      @static_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?api_key=#{api_key}"
-      @region_champions = JSON.parse HTTParty.get(@region_api).body
-      @static_champions = JSON.parse HTTParty.get(@static_api).body
+      @champion_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
+      @lol_static_data_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?api_key=#{api_key}"
+      @champion_api_response = JSON.parse HTTParty.get(@champion_api).body, :symbolize_names => true
+      @lol_static_data_response = JSON.parse HTTParty.get(@lol_static_data_api).body, :symbolize_names => true
+      @champion_api_response = @champion_api_response[:champions]
+      @lol_static_data_response = @lol_static_data_response[:data]
 
       @active_champs = []
       @free_rotation_champs = []
@@ -34,8 +36,8 @@ module Lolxin
     # Return champions that are active.
     def active
       if @active_champs.empty?
-        @region_champions['champions'].inject(@active_champs) do |memo, champ|
-          memo << champ if champ['active']
+        @champion_api_response.inject(@active_champs) do |memo, champ|
+          memo << champ if champ[:active]
           memo
         end
       end
@@ -50,8 +52,8 @@ module Lolxin
       # to get more info
 
       if @free_rotation_champs.empty?
-        @region_champions['champions'].inject(@free_rotation_champs) do |memo, champ|
-          memo << champ if champ['freeToPlay']
+        @champion_api_response.inject(@free_rotation_champs) do |memo, champ|
+          memo << champ if champ[:freeToPlay]
           memo
         end
       end
@@ -61,8 +63,8 @@ module Lolxin
     # Return champions that are rank enabled.
     def rank_enabled
       if @rank_enabled_champs.empty?
-        @region_champions['champions'].each do |champ|
-          if champ['rankedPlayEnabled']
+        @champion_api_response.each do |champ|
+          if champ[:rankedPlayEnabled]
             @rank_enabled_champs << champ
           else
             @rank_disabled_champs << champ
@@ -81,8 +83,8 @@ module Lolxin
     # Return champions that are bot enabled.
     def bot_enabled
       if @bot_enabled_champs.empty?
-        @region_champions['champions'].each do |champ|
-          if champ['botEnabled']
+        @champion_api_response.each do |champ|
+          if champ[:botEnabled]
             @bot_enabled_champs << champ
           else
             @bot_disabled_champs << champ
@@ -101,8 +103,8 @@ module Lolxin
     # Returns champions that are co-op bots enabled.
     def co_op_enabled
       if @co_op_enabled_champs.empty?
-        @region_champions['champions'].each do |champ|
-          if champ['botMmEnabled']
+        @champion_api_response.each do |champ|
+          if champ[:botMmEnabled]
             @bot_enabled_champs << champ
           else
             @bot_disabled_champs << champ
