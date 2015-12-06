@@ -17,12 +17,13 @@ module Lolxin
     # which might be a reoccurring problem with item names as well
     def initialize(api_key, region)
       @champion_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
-      @lol_static_data_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?api_key=#{api_key}"
+      @lol_static_data_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?champData=all&api_key=#{api_key}"
       @champion_api_response = JSON.parse HTTParty.get(@champion_api).body, :symbolize_names => true
       @lol_static_data_response = JSON.parse HTTParty.get(@lol_static_data_api).body, :symbolize_names => true
       @champion_api_response = @champion_api_response[:champions]
       @lol_static_data_response = @lol_static_data_response[:data]
 
+      @champions = []
       @active_champs = []
       @free_rotation_champs = []
       @rank_enabled_champs = []
@@ -31,8 +32,16 @@ module Lolxin
       @bot_disabled_champs = []
       @co_op_enabled_champs = []
       @co_op_disabled_champs = []
+      construct_champions
     end
 
+    def construct_champions
+
+    end
+
+    def all
+      @champions
+    end
     # Return champions that are active.
     def active
       if @active_champs.empty?
