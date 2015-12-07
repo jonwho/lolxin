@@ -7,7 +7,7 @@ module Lolxin
   # will hold data that might become stale in the future
   # so must be careful when caching these instances.
   class Champions
-    attr_reader :champion_api_response, :lol_static_data_response
+    attr_reader :champion_api_response, :lol_static_data_api_response, :champion_api, :lol_static_data_api
 
     # the json keys are strings because that's how the data gets moved back and forth
     # cannot access with ruby symbols
@@ -19,11 +19,12 @@ module Lolxin
       @champion_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
       @lol_static_data_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?champData=all&api_key=#{api_key}"
       @champion_api_response = JSON.parse HTTParty.get(@champion_api).body, :symbolize_names => true
-      @lol_static_data_response = JSON.parse HTTParty.get(@lol_static_data_api).body, :symbolize_names => true
+      @lol_static_data_api_response = JSON.parse HTTParty.get(@lol_static_data_api).body, :symbolize_names => true
+      @champion_keys = @champion_api_response[:keys]
       @champion_api_response = @champion_api_response[:champions]
-      @lol_static_data_response = @lol_static_data_response[:data]
+      @lol_static_data_api_response = @lol_static_data_api_response[:data]
 
-      @champions = []
+      @champions = {}
       @active_champs = []
       @free_rotation_champs = []
       @rank_enabled_champs = []
@@ -36,7 +37,12 @@ module Lolxin
     end
 
     def construct_champions
+      @lol_static_data_api_response.each do |key, value|
+        # a lot of data... need to think of way to break this up logically to make API easy to use
+      end
 
+      @champion_api_response.each do |champ|
+      end
     end
 
     def all
