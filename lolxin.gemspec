@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "lolxin"
   spec.version       = Lolxin::VERSION
   spec.authors       = ["Jon Ho"]
-  spec.email         = ["lj080805@gmail.com"]
+  spec.email         = ["jonwho.contact@gmail.com"]
 
   spec.summary       = %q{Smooth API wrapper for League of Legends}
   spec.description   = %q{Savage memes can't melt playoff dreams}
@@ -29,5 +29,4 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'faraday'
   spec.add_runtime_dependency 'json'
   spec.add_runtime_dependency 'require_all'
-  spec.add_runtime_dependency 'httparty'
 end
