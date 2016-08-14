@@ -48,6 +48,7 @@ module Lolxin
     def all
       @champions
     end
+
     # Return champions that are active.
     def active
       if @active_champs.empty?
