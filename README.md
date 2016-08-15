@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/lolxin.svg)](https://badge.fury.io/rb/lolxin)
 [![Build Status](https://travis-ci.org/jonwho/lolxin.svg)](https://travis-ci.org/jonwho/lolxin)
 [![Code Climate](https://codeclimate.com/github/jonwho/lolxin/badges/gpa.svg)](https://codeclimate.com/github/jonwho/lolxin)
 [![Test Coverage](https://codeclimate.com/github/jonwho/lolxin/badges/coverage.svg)](https://codeclimate.com/github/jonwho/lolxin/coverage)
