@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jonwho/lolxin.svg)](https://travis-ci.org/jonwho/lolxin)
+
 # Lolxin
 
 The smooth API wrapper for League of Legends.
