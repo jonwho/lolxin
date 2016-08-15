@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/jonwho/lolxin.svg)](https://travis-ci.org/jonwho/lolxin)
+[![Code Climate](https://codeclimate.com/github/jonwho/lolxin/badges/gpa.svg)](https://codeclimate.com/github/jonwho/lolxin)
+[![Test Coverage](https://codeclimate.com/github/jonwho/lolxin/badges/coverage.svg)](https://codeclimate.com/github/jonwho/lolxin/coverage)
+[![Issue Count](https://codeclimate.com/github/jonwho/lolxin/badges/issue_count.svg)](https://codeclimate.com/github/jonwho/lolxin)
 
 # Lolxin
 
