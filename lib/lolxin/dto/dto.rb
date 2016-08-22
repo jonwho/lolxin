@@ -12,7 +12,11 @@ module Lolxin
     attr_reader :data
 
     def initialize(json)
-      @data = JSON.parse json
+      if json.is_a? String
+        @data = JSON.parse json
+      else
+        @data = json
+      end
     end
   end
 end
