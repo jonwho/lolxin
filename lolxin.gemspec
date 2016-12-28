@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_girl', '~> 4.0'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'codeclimate-test-reporter'
+  spec.add_development_dependency 'simplecov'
 
   spec.add_runtime_dependency 'faraday'
   spec.add_runtime_dependency 'json'

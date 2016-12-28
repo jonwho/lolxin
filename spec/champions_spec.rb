@@ -1,8 +1,6 @@
-require 'spec_helper'
-
-describe Lolxin::Champions do
-  let(:client) { client = Lolxin::Client.new ENV['API_KEY'] }
-  let(:champions) { champions = client.champions }
+describe Champions do
+  let(:client)    { Client.new ENV['API_KEY'] }
+  let(:champions) { client.champions }
 
   describe '#initialize' do
     it 'should return instance of Lolxin::Champions' do

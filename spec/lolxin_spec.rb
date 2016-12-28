@@ -1,9 +1,5 @@
-require 'spec_helper'
-
 describe Lolxin do
-  it 'has a version number' do
-    expect(Lolxin::VERSION).not_to be nil
+  it 'matches version' do
+    expect(VERSION).to eq("0.1.0")
   end
 end
-
-
