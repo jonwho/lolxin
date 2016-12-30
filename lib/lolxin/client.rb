@@ -1,4 +1,6 @@
 module Lolxin
+  class ClientError < StandardError; end
+
   # Make a client that connects to the Riot API
   # Defaults to NA if given invalid region
   class Client
@@ -6,8 +8,8 @@ module Lolxin
 
     def initialize(api_key, options = {})
       @api_key = api_key
-      region = validate_region(options[:region])
-      @region = region || Region::REGIONS[:NA]
+      @region = options[:region] if Region.valid?(options[:region])
+      raise ClientError, "Invalid region given" unless @region
     end
 
     def champion(champion_name = nil, options = {})
@@ -26,12 +28,8 @@ module Lolxin
       LolStatic.new(options)
     end
 
-    private
-
-    # Returns country code if supported by Riot API else return false.
-    def validate_region(region)
-      return false if region.nil?
-      Region::REGIONS[region.upcase.to_sym] rescue "Expected String type but got #{region.class.name} instead."
+    def lol_status(options = {})
+      LolStatus.new(options)
     end
   end
 end

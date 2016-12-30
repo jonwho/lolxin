@@ -1,6 +1,6 @@
 module Lolxin
   class LolStatic
-    STATIC_ENDPOINT = "https://global.api.pvp.net/api/lol/static-data"
+    BASE_ENDPOINT = "https://global.api.pvp.net/api/lol/static-data"
 
     ENDPOINTS = %w[
       champion
@@ -22,7 +22,7 @@ module Lolxin
       region    = options[:region]
       version   = options[:version]
       @api_key  = options[:api_key]
-      @endpoint = [STATIC_ENDPOINT, region, version].join('/')
+      @endpoint = [BASE_ENDPOINT, region, version].join('/')
       @conn     = Faraday.new(url: @endpoint) do |faraday|
         faraday.request  :url_encoded
         faraday.response :logger

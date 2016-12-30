@@ -1,18 +1,22 @@
 module Lolxin
   module Region
     REGIONS = {
-      BR:   'br',
-      EUNE: 'eune',
-      EUW:  'euw',
-      JP:   'jp',
-      KR:   'kr',
-      LAN:  'lan',
-      LAS:  'las',
-      NA:   'na',
-      OCE:  'oce',
-      PBE:  'pbe',
-      RU:   'ru',
-      TR:   'tr'
+      br:   'br',
+      eune: 'eune',
+      euw:  'euw',
+      jp:   'jp',
+      kr:   'kr',
+      lan:  'lan',
+      las:  'las',
+      na:   'na',
+      oce:  'oce',
+      pbe:  'pbe',
+      ru:   'ru',
+      tr:   'tr'
     }
+
+    def self.valid?(region)
+      REGIONS[region] || REGIONS.values.find { |r| r == region }
+    end
   end
 end
