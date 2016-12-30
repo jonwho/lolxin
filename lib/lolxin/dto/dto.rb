@@ -13,7 +13,7 @@ module Lolxin
 
     def initialize(json)
       if json.is_a? String
-        @data = JSON.parse json
+        @data = JSON.parse(json)
       else
         @data = json
       end

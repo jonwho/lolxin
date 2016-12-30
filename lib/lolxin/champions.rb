@@ -1,5 +1,7 @@
 module Lolxin
   class Champions
+    include Enumerable
+
     attr_reader :champion_api_response, :lol_static_data_api_response, :champion_api, :lol_static_data_api
 
     def initialize(api_key, region)

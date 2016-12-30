@@ -15,6 +15,7 @@ require 'lolxin/champion'
 require 'lolxin/champions'
 require 'lolxin/client'
 require 'lolxin/region'
+require 'lolxin/lol_static'
 require 'lolxin/version'
 
 module Lolxin
