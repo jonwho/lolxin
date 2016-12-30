@@ -1,37 +1,24 @@
 module Lolxin
-  # This returns the Champions object which contains data
-  # about all the current champions from either static
-  # or region specific APIs.
-  # Idea is that each new Champions instance will make a call
-  # to the endpoints returning a new list. Older instances
-  # will hold data that might become stale in the future
-  # so must be careful when caching these instances.
   class Champions
     attr_reader :champion_api_response, :lol_static_data_api_response, :champion_api, :lol_static_data_api
 
-    # the json keys are strings because that's how the data gets moved back and forth
-    # cannot access with ruby symbols
-    # also spelling matters when accessing the data so 'thresh' has to be 'Thresh' in
-    # order to access data properly! either find a ruby gem that does english stuffs
-    # or make constants or some other method to make champion access easier
-    # which might be a reoccurring problem with item names as well
     def initialize(api_key, region)
-      @champion_api =  "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
-      @lol_static_data_api =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?champData=all&api_key=#{api_key}"
-      @champion_api_response = JSON.parse HTTParty.get(@champion_api).body, :symbolize_names => true
+      @champion_api                 = "https://#{region}.api.pvp.net/api/lol/#{region}/#{ApiVersion::CHAMPION}/champion?api_key=#{api_key}"
+      @lol_static_data_api          =  "https://global.api.pvp.net/api/lol/static-data/#{region}/#{ApiVersion::LOL_STATIC_DATA}/champion?champData=all&api_key=#{api_key}"
+      @champion_api_response        = JSON.parse HTTParty.get(@champion_api).body, :symbolize_names => true
       @lol_static_data_api_response = JSON.parse HTTParty.get(@lol_static_data_api).body, :symbolize_names => true
-      @champion_keys = @champion_api_response[:keys]
-      @champion_api_response = @champion_api_response[:champions]
+      @champion_keys                = @champion_api_response[:keys]
+      @champion_api_response        = @champion_api_response[:champions]
       @lol_static_data_api_response = @lol_static_data_api_response[:data]
 
-      @champions = {}
-      @active_champs = []
-      @free_rotation_champs = []
-      @rank_enabled_champs = []
-      @rank_disabled_champs = []
-      @bot_enabled_champs = []
-      @bot_disabled_champs = []
-      @co_op_enabled_champs = []
+      @champions             = {}
+      @active_champs         = []
+      @free_rotation_champs  = []
+      @rank_enabled_champs   = []
+      @rank_disabled_champs  = []
+      @bot_enabled_champs    = []
+      @bot_disabled_champs   = []
+      @co_op_enabled_champs  = []
       @co_op_disabled_champs = []
       construct_champions
     end

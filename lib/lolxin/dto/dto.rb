@@ -3,7 +3,7 @@
 module Lolxin
   class DtoError < StandardError
     def initialize(msg)
-      super msg
+      super(msg)
     end
   end
 

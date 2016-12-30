@@ -1,16 +1,8 @@
-# General idea right now is that client makes top level calls
-# which return instances that relate to that call.
-# Wrapped in each instance then will be calls to get even
-# further specific data about that instance.
-# Example is grabbing specific champion. Getting a champion
-# will return its object. In Champion class make methods to
-# grab more data off the returned DTO or further API calls
-# to retrieve more goodies.
 module Lolxin
   # Make a client that connects to the Riot API.
   # Specify your region here or it defaults to NA.
   class Client
-    attr_reader :region
+    attr_reader :region, :api_key
 
     # api_key parameter necessary to make api calls
     # options not provided means will set to defaults
@@ -21,13 +13,19 @@ module Lolxin
     end
 
     # Returns a new Champion instance.
-    def champion( champion_name = nil )
-      Champion.new @api_key, champion_name
+    def champion(champion_name = nil, options = {})
+      Champion.new(api_key, champion_name, options)
     end
 
     # Returns a new Champions instance.
-    def champions
-      Champions.new @api_key, @region
+    def champions(options = {})
+      options[:region] ||= region
+      Champions.new(api_key, options)
+    end
+
+    def lol_static(options = {})
+      options[:region] ||= region
+      LolStatic.new(api_key, options)
     end
 
     private
@@ -37,6 +35,5 @@ module Lolxin
       return false if region.nil?
       Region::REGIONS[region.upcase.to_sym] rescue "Expected String type but got #{region.class.name} instead."
     end
-
   end # Client
 end # Lolxin
