@@ -1,8 +1,7 @@
 module Lolxin
   class ClientError < StandardError; end
 
-  # Make a client that connects to the Riot API
-  # Defaults to NA if given invalid region
+  # Client create connection clients for specific endpoints
   class Client
     attr_reader :region, :api_key
 
@@ -74,6 +73,13 @@ module Lolxin
       options[:region]  ||= region
       options[:version] ||= ApiVersion::MATCH_LIST
       MatchList.new(options)
+    end
+
+    def stats(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::STATS
+      Stats.new(options)
     end
   end
 end

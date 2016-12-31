@@ -12,6 +12,5 @@ module Lolxin
     MATCH_LIST       = 'v2.2'
     STATS            = 'v1.3'
     SUMMONER         = 'v1.4'
-    TEAM             = 'v2.4'
   end
 end
