@@ -35,5 +35,11 @@ module Lolxin
       options[:region]  ||= region
       CurrentGame.new(options)
     end
+
+    def featured_games(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      FeaturedGames.new(options)
+    end
   end
 end
