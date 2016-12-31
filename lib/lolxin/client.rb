@@ -48,5 +48,11 @@ module Lolxin
       options[:version] ||= ApiVersion::GAME
       Game.new(options)
     end
+
+    def champion_mastery(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      ChampionMastery.new(options)
+    end
   end
 end

@@ -1,5 +1,3 @@
-require_relative 'dto/champion_dto'
-
 module Lolxin
   class Champion
     BASE_ENDPOINT = "https://%s.api.pvp.net/api/lol/%s/%s/champion"
