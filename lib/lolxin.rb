@@ -24,6 +24,7 @@ require 'lolxin/lol_status'
 require 'lolxin/match'
 require 'lolxin/match_list'
 require 'lolxin/stats'
+require 'lolxin/summoner'
 
 module Lolxin
 end

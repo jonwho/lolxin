@@ -81,5 +81,12 @@ module Lolxin
       options[:version] ||= ApiVersion::STATS
       Stats.new(options)
     end
+
+    def summoner(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::SUMMONER
+      Summoner.new(options)
+    end
   end
 end
