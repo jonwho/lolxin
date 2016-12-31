@@ -16,6 +16,7 @@ require 'lolxin/lol_static'
 require 'lolxin/lol_status'
 require 'lolxin/current_game'
 require 'lolxin/featured_games'
+require 'lolxin/game'
 require 'lolxin/version'
 
 module Lolxin
