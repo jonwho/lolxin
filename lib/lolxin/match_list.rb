@@ -19,13 +19,21 @@ module Lolxin
     end
 
     def by_summoner(params = {}, &block)
-      summ_id = params.delete(:summonerId).to_s
+      summ_id       = params.delete(:summonerId).to_s
+
+      champ_ids     = params.delete(:championIds)
+      champ_ids     = champ_ids.join(',') if champ_ids.is_a? Array
+
       ranked_queues = params.delete(:rankedQueues)
       ranked_queues = ranked_queues.map(&:upcase).join(',') if ranked_queues.is_a? Array
-      seasons = params.delete(:seasons)
-      seasons = seasons.map(&:upcase).join(',') if seasons.is_a? Array
+
+      seasons       = params.delete(:seasons)
+      seasons       = seasons.map(&:upcase).join(',') if seasons.is_a? Array
+
+      params[:championIds]  = champ_ids
       params[:rankedQueues] = ranked_queues
-      params[:seasons] = seasons
+      params[:seasons]      = seasons
+
       conn.get(summ_id, params, &block)
     end
   end
