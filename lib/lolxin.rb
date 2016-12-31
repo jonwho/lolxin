@@ -20,6 +20,7 @@ require 'lolxin/game'
 require 'lolxin/champion_mastery'
 require 'lolxin/league'
 require 'lolxin/match'
+require 'lolxin/match_list'
 require 'lolxin/version'
 
 module Lolxin

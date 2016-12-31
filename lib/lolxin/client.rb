@@ -68,5 +68,12 @@ module Lolxin
       options[:version] ||= ApiVersion::MATCH
       Match.new(options)
     end
+
+    def match_list(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::MATCH_LIST
+      MatchList.new(options)
+    end
   end
 end
