@@ -19,11 +19,6 @@ module Lolxin
       Champion.new(options)
     end
 
-    def champions(options = {})
-      options[:region] ||= region
-      Champions.new(api_key, options)
-    end
-
     def lol_static(options = {})
       options[:api_key] ||= api_key
       options[:region]  ||= region
@@ -33,6 +28,12 @@ module Lolxin
 
     def lol_status(options = {})
       LolStatus.new(options)
+    end
+
+    def current_game(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      CurrentGame.new(options)
     end
   end
 end
