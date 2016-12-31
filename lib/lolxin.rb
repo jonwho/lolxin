@@ -19,6 +19,7 @@ require 'lolxin/featured_games'
 require 'lolxin/game'
 require 'lolxin/champion_mastery'
 require 'lolxin/league'
+require 'lolxin/match'
 require 'lolxin/version'
 
 module Lolxin
