@@ -1,12 +1,4 @@
 require 'faraday'
-require 'json'
-
-require 'lolxin/helpers/json_field'
-
-require 'lolxin/dto/dto'
-require 'lolxin/dto/champion_dto'
-require 'lolxin/dto/champion_list_dto'
-require 'lolxin/champions'
 
 require 'lolxin/version'
 require 'lolxin/api_version'
