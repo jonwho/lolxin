@@ -6,7 +6,9 @@
 
 # Lolxin
 
-The not-so-smooth API wrapper for League of Legends.
+The not-so-smooth API wrapper for League of Legends. Pronounced lo-shin like
+lotion! Too clever I know. Currently this gem does nothing fancy like give you
+member access on a struct. This is only a 1-to-1 API wrap around Riot's API.
 
 ## Installation
 
@@ -54,7 +56,6 @@ Bug reports and pull requests are welcome on GitHub at
 https://github.com/jonwho/lolxin. This project is intended to be a safe,
 welcoming space for collaboration, and contributors are expected to adhere
 to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
 
 ## License
 
