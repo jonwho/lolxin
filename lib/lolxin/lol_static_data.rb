@@ -1,5 +1,5 @@
 module Lolxin
-  class LolStatic
+  class LolStaticData
     BASE_ENDPOINT = "https://global.api.pvp.net/api/lol/static-data/%s/%s"
 
     ENDPOINTS = %w[

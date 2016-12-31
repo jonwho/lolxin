@@ -19,11 +19,11 @@ module Lolxin
       Champion.new(options)
     end
 
-    def lol_static(options = {})
+    def lol_static_data(options = {})
       options[:api_key] ||= api_key
       options[:region]  ||= region
       options[:version] ||= ApiVersion::LOL_STATIC_DATA
-      LolStatic.new(options)
+      LolStaticData.new(options)
     end
 
     def lol_status(options = {})
