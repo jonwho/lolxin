@@ -32,9 +32,7 @@ module Lolxin
 
       body = JSON.parse(res.body)
       champs = body['champions']
-      champs.map do |champ|
-        build_champion(champ)
-      end
+      champs.map { |champ| build_champion(champ) }
     end
 
     def find(id)
