@@ -1,8 +1,7 @@
 module Lolxin
   module ApiVersion
-    CHAMPION         = 'v1.2'
     CHAMPIONS        = 'v3'
-    CHAMPION_MASTERY = 'Riot Games has not specified a version'
+    CHAMPION_MASTERY = 'v3'
     CURRENT_GAME     = 'v1.0'
     FEATURED_GAMES   = 'v1.0'
     GAME             = 'v1.3'

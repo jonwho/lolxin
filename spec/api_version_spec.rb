@@ -1,7 +1,7 @@
 describe Lolxin::ApiVersion do
   versions = {
-    champion: 'v1.2',
-    champion_mastery: 'Riot Games has not specified a version',
+    champions: 'v3',
+    champion_mastery: 'v3',
     current_game: 'v1.0',
     featured_games: 'v1.0',
     game: 'v1.3',

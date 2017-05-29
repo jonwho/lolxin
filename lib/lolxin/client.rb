@@ -18,11 +18,11 @@ module Lolxin
       Champions.new(options)
     end
 
-    def champion(options = {})
+    def champion_mastery(options = {})
       options[:api_key] = api_key
-      options[:region]  = region
-      options[:version] = ApiVersion::CHAMPION
-      Champion.new(options)
+      options[:region] = region
+      options[:version] = ApiVersion::CHAMPION_MASTERY
+      ChampionMastery.new(options)
     end
 
     def lol_static_data(options = {})
@@ -53,12 +53,6 @@ module Lolxin
       options[:region]  ||= region
       options[:version] ||= ApiVersion::GAME
       Game.new(options)
-    end
-
-    def champion_mastery(options = {})
-      options[:api_key] ||= api_key
-      options[:region]  ||= region
-      ChampionMastery.new(options)
     end
 
     def league(options = {})

@@ -2,9 +2,9 @@ describe Champions do
   let(:champions) { Client.new(ENV['API_KEY'], region: :na1).champions }
 
   describe '#all' do
-    it 'retrieves a list of Champion DTO data' do
+    it 'retrieves a list of ChampionDTO' do
       champs = champions.all
-      expect(champs.length).to be >= 0
+      expect(champs.length).to be >= 1
       champs.each do |champ|
         expect(champ.ranked_play_enabled).not_to be(nil)
         expect(champ.bot_enabled).not_to be(nil)

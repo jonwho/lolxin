@@ -2,29 +2,26 @@ module Lolxin
   class ChampionMasteryError < StandardError; end
 
   class ChampionMastery
-    BASE_ENDPOINT = "https://%s.api.pvp.net/championmastery/location"
+    BASE_ENDPOINT = "https://%{region}.api.riotgames.com/lol/champion-mastery/%{version}"
 
-    REGIONS = %w[
-      BR1
-      EUN1
-      EUW1
-      JP1
-      KR
-      LA1
-      LA2
-      NA1
-      OC1
-      PBE1
-      RU
-      TR1
-    ]
+    ChampionMasteryDTO = Struct.new(
+      :chest_granted,
+      :champion_level,
+      :champion_points,
+      :champion_id,
+      :player_id,
+      :champion_points_until_next_level,
+      :champion_points_since_last_level,
+      :last_play_time
+    )
 
     attr_accessor :conn
 
     def initialize(options = {})
       region   = options[:region]
       api_key  = options[:api_key]
-      endpoint = BASE_ENDPOINT % [region]
+      version  = options[:version]
+      endpoint = BASE_ENDPOINT % { region: region, version: version }
       @conn    = Faraday.new(endpoint, options[:conn_options]) do |faraday|
         faraday.request(:url_encoded)
         faraday.response(:logger)
@@ -33,37 +30,46 @@ module Lolxin
       end
     end
 
-    def player_champion(params = {}, &block)
-      player_id   = params.delete(:playerId)
-      champion_id = params.delete(:championId)
-      region      = params.delete(:region)
-      raise(ChampionMasteryError, "Region given not in acceptable regions #{REGIONS}") unless REGIONS.include? region
-      endpoint    = [region, 'player', player_id, 'champion', champion_id].join('/')
-      conn.get(endpoint, params, &block)
+    def by_summoner(summoner_id)
+      endpoint = "champion-masteries/by-summoner/#{summoner_id}"
+      res = conn.get(endpoint)
+      return res if res.status != 200
+
+      champion_masteries = JSON.parse(res.body)
+      champion_masteries.map do |champion_mastery|
+        build_champion_mastery(champion_mastery)
+      end
     end
 
-    def player_champions(params = {}, &block)
-      player_id = params.delete(:playerId)
-      region    = params.delete(:region)
-      raise(ChampionMasteryError, "Region given not in acceptable regions #{REGIONS}") unless REGIONS.include? region
-      endpoint  = [region, 'player', player_id, 'champions'].join('/')
-      conn.get(endpoint, params, &block)
+    def by_champion(summoner_id, champion_id)
+      endpoint = "champion-masteries/by-summoner/#{summoner_id}/by-champion/#{champion_id}"
+      res = conn.get(endpoint)
+      return res if res.status != 200
+
+      champion_mastery = JSON.parse(res.body)
+      build_champion_mastery(champion_mastery)
     end
 
-    def player_score(params = {}, &block)
-      player_id = params.delete(:playerId)
-      region    = params.delete(:region)
-      raise(ChampionMasteryError, "Region given not in acceptable regions #{REGIONS}") unless REGIONS.include? region
-      endpoint  = [region, 'player', player_id, 'score'].join('/')
-      conn.get(endpoint, params, &block)
+    def total_score(summoner_id)
+      res = conn.get("scores/by-summoner/#{summoner_id}")
+      return res if res.status != 200
+
+      res.body
     end
 
-    def player_top_champions(params = {}, &block)
-      player_id = params.delete(:playerId)
-      region    = params.delete(:region)
-      raise(ChampionMasteryError, "Region given not in acceptable regions #{REGIONS}") unless REGIONS.include? region
-      endpoint  = [region, 'player', player_id, 'topchampions'].join('/')
-      conn.get(endpoint, params, &block)
+    private
+
+    def build_champion_mastery(champion_mastery)
+      ChampionMasteryDTO.new(
+        champion_mastery['chestGranted'],
+        champion_mastery['championLevel'],
+        champion_mastery['championPoints'],
+        champion_mastery['championId'],
+        champion_mastery['playerId'],
+        champion_mastery['championPointsUntilNextLevel'],
+        champion_mastery['championPointsSinceLastLevel'],
+        champion_mastery['lastPlayTime']
+      )
     end
   end
 end
