@@ -11,6 +11,13 @@ module Lolxin
       raise ClientError, "Invalid region given" unless @region
     end
 
+    def champions(options = {})
+      options[:api_key] = api_key
+      options[:region] = region
+      options[:version] = ApiVersion::CHAMPIONS
+      Champions.new(options)
+    end
+
     def champion(options = {})
       options[:api_key] = api_key
       options[:region]  = region

@@ -12,4 +12,4 @@ Dotenv.load
 
 # If you use this, don't forget to add pry to your Gemfile!
 require "pry"
-Pry.start(Client.new(ENV['API_KEY'], region: :na))
+Pry.start(Client.new(ENV['API_KEY'], region: :na1))

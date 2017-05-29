@@ -8,7 +8,7 @@ module Lolxin
       kr:   'kr',
       lan:  'lan',
       las:  'las',
-      na:   'na',
+      na1:  'na1',
       oce:  'oce',
       pbe:  'pbe',
       ru:   'ru',

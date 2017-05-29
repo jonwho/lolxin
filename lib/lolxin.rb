@@ -1,4 +1,5 @@
 require 'faraday'
+require 'json'
 
 require 'lolxin/version'
 require 'lolxin/api_version'
@@ -6,6 +7,7 @@ require 'lolxin/client'
 require 'lolxin/region'
 
 require 'lolxin/champion'
+require 'lolxin/champions'
 require 'lolxin/champion_mastery'
 require 'lolxin/current_game'
 require 'lolxin/featured_games'
