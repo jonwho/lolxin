@@ -12,17 +12,24 @@ module Lolxin
     end
 
     def champions(options = {})
-      options[:api_key] = api_key
-      options[:region] = region
-      options[:version] = ApiVersion::CHAMPIONS
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::CHAMPIONS
       Champions.new(options)
     end
 
     def champion_mastery(options = {})
-      options[:api_key] = api_key
-      options[:region] = region
-      options[:version] = ApiVersion::CHAMPION_MASTERY
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::CHAMPION_MASTERY
       ChampionMastery.new(options)
+    end
+
+    def spectator(options = {})
+      options[:api_key] ||= api_key
+      options[:region]  ||= region
+      options[:version] ||= ApiVersion::SPECTATOR
+      Spectator.new(options)
     end
 
     def lol_static_data(options = {})

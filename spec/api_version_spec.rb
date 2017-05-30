@@ -11,7 +11,8 @@ describe Lolxin::ApiVersion do
     match: 'v2.2',
     match_list: 'v2.2',
     stats: 'v1.3',
-    summoner: 'v1.4'
+    summoner: 'v1.4',
+    spectator: 'v3'
   }
 
   versions.each do |k, v|
