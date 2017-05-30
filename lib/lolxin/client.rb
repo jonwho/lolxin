@@ -32,11 +32,11 @@ module Lolxin
       Spectator.new(options)
     end
 
-    def lol_static_data(options = {})
+    def static_data(options = {})
       options[:api_key] ||= api_key
       options[:region]  ||= region
-      options[:version] ||= ApiVersion::LOL_STATIC_DATA
-      LolStaticData.new(options)
+      options[:version] ||= ApiVersion::STATIC_DATA
+      StaticData.new(options)
     end
 
     def lol_status(options = {})

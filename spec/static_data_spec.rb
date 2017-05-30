@@ -1,0 +1,2 @@
+describe StaticData do
+end

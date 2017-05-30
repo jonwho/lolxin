@@ -5,7 +5,7 @@ describe Lolxin::ApiVersion do
     spectator: 'v3',
     league: 'v3',
     match: 'v3',
-    lol_static_data: 'v1.2',
+    static_data: 'v3',
     lol_status: 'v1.0',
     stats: 'v1.3',
     summoner: 'v1.4'
