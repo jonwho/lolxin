@@ -11,8 +11,6 @@ require 'lolxin/region'
 # Riot API
 require 'lolxin/champions'
 require 'lolxin/champion_mastery'
-require 'lolxin/current_game'
-require 'lolxin/featured_games'
 require 'lolxin/game'
 require 'lolxin/league'
 require 'lolxin/lol_static_data'
