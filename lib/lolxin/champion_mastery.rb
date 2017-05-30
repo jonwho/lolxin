@@ -1,6 +1,4 @@
 module Lolxin
-  class ChampionMasteryError < StandardError; end
-
   class ChampionMastery
     BASE_ENDPOINT = "https://%{region}.api.riotgames.com/lol/champion-mastery/%{version}"
 

@@ -5,7 +5,7 @@ describe Lolxin::ApiVersion do
     current_game: 'v1.0',
     featured_games: 'v1.0',
     game: 'v1.3',
-    league: 'v2.5',
+    league: 'v3',
     lol_static_data: 'v1.2',
     lol_status: 'v1.0',
     match: 'v2.2',

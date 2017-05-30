@@ -5,7 +5,7 @@ module Lolxin
     CURRENT_GAME     = 'v1.0'
     FEATURED_GAMES   = 'v1.0'
     GAME             = 'v1.3'
-    LEAGUE           = 'v2.5'
+    LEAGUE           = 'v3'
     LOL_STATIC_DATA  = 'v1.2'
     LOL_STATUS       = 'v1.0'
     MATCH            = 'v2.2'
