@@ -7,8 +7,25 @@
 # Lolxin
 
 The not-so-smooth API wrapper for League of Legends. Pronounced lo-shin like
-lotion! Too clever I know. Currently this gem does nothing fancy like give you
-member access on a struct. This is only a 1-to-1 API wrap around Riot's API.
+lotion! Too clever I know.
+
+Gem is now a WIP for v3
+
+## Supported endpoints
+| Endpoint          | Version |
+| ----------------- | ------- |
+| CHAMPION-MASTERY  | 3       |
+| CHAMPIONS         | 3       |
+| LEAGUE            | 3       |
+| LOL-STATUS        | 3       |
+| MASTERIES         | N/A     |
+| MATCH             | N/A     |
+| RUNES             | N/A     |
+| SPECTATOR         | 3       |
+| STATIC-_DATA       | N/A     |
+| SUMMONER          | N/A     |
+| TOURNAMENT-STUB   | N/A     |
+| TOURNAMENT        | N/A     |
 
 ## Installation
 
