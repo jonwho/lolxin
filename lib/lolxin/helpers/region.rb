@@ -15,7 +15,7 @@ module Lolxin
     }
 
     def self.valid?(region)
-      REGIONS[region] || REGIONS.values.find { |r| r == region }
+      REGIONS[region] || REGIONS.values.include?(region)
     end
   end
 end

@@ -2,11 +2,13 @@ describe Champions do
   let(:champions) { Client.new(ENV['API_KEY'], region: :na1).champions }
 
   describe '#all' do
-    it 'retrieves a list of ChampionDTO' do
+    it 'retrieves a list of ChampionDto' do
       champs = champions.all
       expect(champs.length).to be >= 1
       champs.each do |champ|
-        expect(champ.values.any?(&:nil?)).to be(false)
+        champ.instance_variables.each do |iv|
+          expect(champ.instance_variable_get(iv)).not_to be nil
+        end
       end
     end
   end
@@ -14,7 +16,9 @@ describe Champions do
   describe '#find' do
     it 'gets a champion by their numerical id' do
       champ = champions.find(266)
-      expect(champ.values.any?(&:nil?)).to be(false)
+      champ.instance_variables.each do |iv|
+        expect(champ.instance_variable_get(iv)).not_to be nil
+      end
     end
   end
 end

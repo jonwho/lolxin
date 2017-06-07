@@ -1,7 +1,7 @@
 module Lolxin
   module ApiVersion
-    CHAMPIONS        = 'v3'
     CHAMPION_MASTERY = 'v3'
+    CHAMPIONS        = 'v3'
     LEAGUE           = 'v3'
     SPECTATOR        = 'v3'
     MATCH            = 'v3'

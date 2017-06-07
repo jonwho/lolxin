@@ -7,14 +7,12 @@ module Lolxin
 
     def initialize(api_key, options = {})
       @api_key = api_key
-      @region = options[:region] if Region.valid?(options[:region])
+      @region  = options[:region] if Region.valid?(options[:region])
+      @options = { api_key: @api_key, region: @region }
       raise ClientError, "Invalid region given" unless @region
     end
 
-    def champions(options = {})
-      options[:api_key] ||= api_key
-      options[:region]  ||= region
-      options[:version] ||= ApiVersion::CHAMPIONS
+    def champions(options = @options)
       Champions.new(options)
     end
 

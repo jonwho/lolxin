@@ -1,4 +1,4 @@
-describe Lolxin::ApiVersion do
+describe ApiVersion do
   versions = {
     champions: 'v3',
     champion_mastery: 'v3',
