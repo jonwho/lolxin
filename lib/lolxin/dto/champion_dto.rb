@@ -1,5 +1,7 @@
 module Lolxin
-  class ChampionDto < Dto
+  class ChampionDto
+    include Dto
+
     attr_accessor :ranked_play_enabled
     attr_accessor :bot_enabled
     attr_accessor :bot_mm_enabled
@@ -9,7 +11,6 @@ module Lolxin
 
     def initialize(data)
       initialize_with(data)
-      yield self if block_given?
     end
 
     private
