@@ -4,30 +4,36 @@ describe League do
   let(:doublelift)  { 20132258 }
 
   describe '#challenger_by_queue' do
-    it 'retrieves a LeagueListDTO' do
+    it 'retrieves a LeagueListDto' do
       league_list = league.challenger_by_queue("RANKED_FLEX_SR")
-      expect(league_list.values.any?(&:nil?)).to be(false)
+      league_list.instance_variables.each do |iv|
+        expect(league_list.instance_variable_get(iv)).not_to be nil
+      end
     end
   end
 
   describe '#league_by_summoner' do
-    it 'retrieves a list of LeagueListDTO' do
+    it 'retrieves a list of LeagueListDto' do
       league_lists = league.league_by_summoner(doublelift)
       league_lists.each do |league_list|
-        expect(league_list.values.any?(&:nil?)).to be(false)
+        league_list.instance_variables.each do |iv|
+          expect(league_list.instance_variable_get(iv)).not_to be nil
+        end
       end
     end
   end
 
   describe '#master_by_queue' do
-    it 'retrieves a LeagueListDTO' do
+    it 'retrieves a LeagueListDto' do
       league_list = league.master_by_queue("RANKED_FLEX_SR")
-      expect(league_list.values.any?(&:nil?)).to be(false)
+      league_list.instance_variables.each do |iv|
+        expect(league_list.instance_variable_get(iv)).not_to be nil
+      end
     end
   end
 
   describe '#positions_by_summoner' do
-    it 'retrieves a list of LeaguePositionDTO' do
+    it 'retrieves a list of LeaguePositionDto' do
       league_positions = league.positions_by_summoner(doublelift)
       league_positions.each do |league_position|
         expect(league_position.rank).not_to be(nil)
