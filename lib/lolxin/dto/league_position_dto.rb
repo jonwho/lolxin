@@ -1,6 +1,6 @@
 module Lolxin
   class LeaguePositionDto
-    attr_accessor *%i(
+    attr_accessor(*%i(
       rank
       queue_type
       hot_streak
@@ -15,7 +15,7 @@ module Lolxin
       fresh_blood
       tier
       league_points
-    )
+    ))
 
     def initialize(data)
       initialize_with(data)

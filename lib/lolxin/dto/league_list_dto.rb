@@ -1,11 +1,11 @@
 module Lolxin
   class LeagueListDto
-    attr_accessor *%i(
+    attr_accessor(*%i(
       tier
       queue
       name
       entries
-    )
+    ))
 
     def initialize(data)
       initialize_with(data)

@@ -1,11 +1,11 @@
 module Lolxin
   class MiniSeriesDto
-    attr_accessor *%i(
+    attr_accessor(*%i(
       wins
       losses
       target
       progress
-    )
+    ))
 
     def initialize(data)
       return nil if data.nil?

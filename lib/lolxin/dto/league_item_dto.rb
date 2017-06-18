@@ -1,6 +1,6 @@
 module Lolxin
   class LeagueItemDto
-    attr_accessor *%i(
+    attr_accessor(*%i(
       rank
       hot_streak
       mini_series
@@ -11,7 +11,7 @@ module Lolxin
       inactive
       fresh_blood
       league_points
-    )
+    ))
 
     def initialize(data)
       initialize_with(data)

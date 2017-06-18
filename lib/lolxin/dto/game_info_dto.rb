@@ -1,19 +1,27 @@
 module Lolxin
   class GameInfoDto
-    attr_accessor :game_id
-    attr_accessor :game_start_time
-    attr_accessor :platform_id
-    attr_accessor :game_mode
-    attr_accessor :map_id
-    attr_accessor :game_type
-    attr_accessor :banned_champions
-    attr_accessor :observers
-    attr_accessor :participants
-    attr_accessor :game_length
-    attr_accessor :game_queue_config_id
+    attr_accessor(*%i(
+      game_id
+      game_start_time
+      platform_id
+      game_mode
+      map_id
+      game_type
+      banned_champions
+      observers
+      participants
+      game_length
+      game_queue_config_id
+    ))
 
     def initialize(data)
       initialize_with(data)
+    end
+
+    private
+
+    # TODO: finish this
+    def initialize_with(dat)
     end
   end
 
