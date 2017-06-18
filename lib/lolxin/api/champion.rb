@@ -4,10 +4,10 @@ module Lolxin
       endpoint = "platform/%{version}/champions" % {version: version}
 
       res = if id.nil?
-        conn.get(endpoint)
-      else
-        conn.get("#{endpoint}/#{id}")
-      end
+              conn.get(endpoint)
+            else
+              conn.get("#{endpoint}/#{id}")
+            end
 
       return res if res.status != 200
 
