@@ -12,22 +12,22 @@ describe League do
     end
   end
 
-  describe '#league_by_summoner' do
-    it 'retrieves a list of LeagueListDto' do
-      league_lists = league.league_by_summoner(doublelift)
-      league_lists.each do |league_list|
-        league_list.instance_variables.each do |iv|
-          expect(league_list.instance_variable_get(iv)).not_to be nil
-        end
-      end
-    end
-  end
-
   describe '#master_by_queue' do
     it 'retrieves a LeagueListDto' do
       league_list = league.master_by_queue("RANKED_FLEX_SR")
       league_list.instance_variables.each do |iv|
         expect(league_list.instance_variable_get(iv)).not_to be nil
+      end
+    end
+  end
+
+  describe '#league_by_summoner' do
+    it 'retrieves a list of LeagueListDto' do
+      league_lists = league.leagues_by_summoner(doublelift)
+      league_lists.each do |league_list|
+        league_list.instance_variables.each do |iv|
+          expect(league_list.instance_variable_get(iv)).not_to be nil
+        end
       end
     end
   end
