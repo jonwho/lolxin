@@ -22,7 +22,7 @@ Gem is now a WIP for v3
 | MATCH             | N/A     |
 | RUNES             | N/A     |
 | SPECTATOR         | 3       |
-| STATIC-_DATA       | N/A     |
+| STATIC-DATA       | N/A     |
 | SUMMONER          | N/A     |
 | TOURNAMENT-STUB   | N/A     |
 | TOURNAMENT        | N/A     |

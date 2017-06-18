@@ -9,7 +9,8 @@ module Lolxin
       @api_key = api_key
       @region  = options[:region] if Region.valid?(options[:region])
       @options = { api_key: @api_key, region: @region }
-      raise ClientError, "Invalid region given" unless @region
+      raise ClientError, "Invalid API key" if @api_key.nil? || @api_key.empty?
+      raise ClientError, "Invalid region" unless @region
     end
 
     def champions(options = @options)
