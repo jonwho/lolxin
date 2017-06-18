@@ -6,9 +6,9 @@ module Lolxin
     ENDPOINTS = [
       :champion_mastery,
       :champion,
-      :league
+      :league,
       #lol_static_data
-      #lol_status
+      :lol_status
       #masteries
       #match
       #runes
