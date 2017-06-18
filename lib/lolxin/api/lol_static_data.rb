@@ -1,17 +1,10 @@
 module Lolxin
-  class StaticData
-    BASE_ENDPOINT = "https://%{region}.api.riotgames.com/lol/static-data/%{version}"
-
-    attr_accessor :conn
-
+  class LolStaticData < Api
     def initialize(options = {})
-      region   = options[:region]
-      version  = options[:version]
-      api_key  = options[:api_key]
-      endpoint = BASE_ENDPOINT % { region: region, version: version }
+      super
+      endpoint = "#{BASE_ENDPOINT}static-data/%{version}" % {region: @region, version: @version}
       @conn    = Faraday.new(endpoint, options[:conn_options]) do |faraday|
         faraday.request(:url_encoded)
-        faraday.response(:logger)
         faraday.adapter(Faraday.default_adapter)
         faraday.params[:api_key] = api_key
       end

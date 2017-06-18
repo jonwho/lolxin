@@ -7,7 +7,7 @@ module Lolxin
       :champion_mastery,
       :champion,
       :league,
-      #lol_static_data
+      :lol_static_data,
       :lol_status
       #masteries
       #match

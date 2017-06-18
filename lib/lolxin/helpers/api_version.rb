@@ -3,7 +3,7 @@ module Lolxin
     CHAMPION_MASTERY = 'v3'
     CHAMPION         = 'v3'
     LEAGUE           = 'v3'
-    #LOL_STATIC_DATA  = 'v3'
+    LOL_STATIC_DATA  = 'v3'
     LOL_STATUS       = 'v3'
     #MASTERIES        = 'v3'
     #MATCH            = 'v3'

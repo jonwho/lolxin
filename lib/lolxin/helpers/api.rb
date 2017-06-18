@@ -8,8 +8,8 @@ module Lolxin
       @api_key  = options[:api_key]
       @region   = options[:region]
       @version  = options[:version]
-      endpoint = BASE_ENDPOINT % {region: region, version: version}
-      @conn    = Faraday.new(endpoint, options[:conn_options]) do |faraday|
+      endpoint  = BASE_ENDPOINT % {region: region}
+      @conn     = Faraday.new(endpoint, options[:conn_options]) do |faraday|
         faraday.request(:url_encoded)
         faraday.adapter(Faraday.default_adapter)
         faraday.params[:api_key] = api_key
