@@ -1,13 +1,13 @@
 module Lolxin
   class ChampionDto
-    include Dto
-
-    attr_accessor :ranked_play_enabled
-    attr_accessor :bot_enabled
-    attr_accessor :bot_mm_enabled
-    attr_accessor :active
-    attr_accessor :free_to_play
-    attr_accessor :id
+    attr_accessor *%i(
+      ranked_play_enabled
+      bot_enabled
+      bot_mm_enabled
+      active
+      free_to_play
+      id
+    )
 
     def initialize(data)
       initialize_with(data)

@@ -1,9 +1,5 @@
 module Lolxin
   class Champion < Api
-    def initialize(options = {})
-      super
-    end
-
     def champions(id = nil)
       endpoint = "platform/%{version}/champions" % {version: version}
 

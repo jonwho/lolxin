@@ -1,7 +1,5 @@
 module Lolxin
   class GameInfoDto
-    include Dto
-
     attr_accessor :game_id
     attr_accessor :game_start_time
     attr_accessor :platform_id

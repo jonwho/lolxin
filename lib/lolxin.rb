@@ -9,6 +9,7 @@ require 'lolxin/helpers/region'
 
 require 'lolxin/dto/dto'
 require 'lolxin/dto/champion_dto'
+require 'lolxin/dto/champion_mastery_dto'
 require 'lolxin/dto/game_info_dto'
 
 require 'lolxin/api/champion_mastery'
