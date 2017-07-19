@@ -21,7 +21,7 @@ module Lolxin
     private
 
     # TODO: finish this
-    def initialize_with(dat)
+    def initialize_with(data)
     end
   end
 

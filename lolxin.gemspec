@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'dotenv', '~> 2.0.2'
   spec.add_development_dependency 'factory_girl', '~> 4.0'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'codeclimate-test-reporter'
   spec.add_development_dependency 'simplecov'
 

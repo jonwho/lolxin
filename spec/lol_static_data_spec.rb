@@ -1,0 +1,2 @@
+describe LolStaticData do
+end
