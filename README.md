@@ -66,10 +66,10 @@ any variables you see fit to speed up manual testing.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
-To release a new version, update the version number in `version.rb`, and then
-run `bundle exec rake release`, which will create a git tag for the version,
-push git commits and tags, and push the `.gem` file to
-[rubygems.org](https://rubygems.org).
+## Release
+To release a new version, update the version number in `lib/lolxin/helpers/version.rb`, and then
+run `bundle exec rake release`, which will create a git tag for the version, push git commits and
+tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Testing
 Change up the regions per spec file so that you don't run into rate limiting issues often.
@@ -79,6 +79,7 @@ Change up the regions per spec file so that you don't run into rate limiting iss
 - Parse API responses with DTOs
 - TOURNAMENT/TOURNAMENT-STUB endpoints
 - VCR record http responses?
+- Make tests deterministic
 
 ## Contributing
 
