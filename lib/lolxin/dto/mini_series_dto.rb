@@ -16,9 +16,9 @@ module Lolxin
     private
 
     def initialize_with(data)
-      @wins = data['wins']
-      @losses = data['losses']
-      @target = data['target']
+      @wins     = data['wins']
+      @losses   = data['losses']
+      @target   = data['target']
       @progress = data['progress']
     end
   end

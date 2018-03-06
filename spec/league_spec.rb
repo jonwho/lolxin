@@ -1,7 +1,8 @@
 describe League do
-  let(:client)      { Client.new(ENV['API_KEY'], region: :na1) }
-  let(:league)      { client.league }
-  let(:doublelift)  { 20132258 }
+  let(:client)     { Client.new(ENV['API_KEY'], region: :na1) }
+  let(:league)     { client.league }
+  let(:doublelift) { 20132258 }
+  # let(:league_id)     { FIND_ONE }
 
   describe '#challenger_by_queue' do
     it 'retrieves a LeagueListDto' do
@@ -21,16 +22,17 @@ describe League do
     end
   end
 
-  describe '#league_by_summoner' do
-    it 'retrieves a list of LeagueListDto' do
-      league_lists = league.leagues_by_summoner(doublelift)
-      league_lists.each do |league_list|
-        league_list.instance_variables.each do |iv|
-          expect(league_list.instance_variable_get(iv)).not_to be nil
-        end
-      end
-    end
-  end
+  # TODO: find a league_id to use
+  # describe '#leagues' do
+  #   it 'retrieves a list of LeagueListDto' do
+  #     league_lists = league.leagues(league_id)
+  #     league_lists.each do |league_list|
+  #       league_list.instance_variables.each do |iv|
+  #         expect(league_list.instance_variable_get(iv)).not_to be nil
+  #       end
+  #     end
+  #   end
+  # end
 
   describe '#positions_by_summoner' do
     it 'retrieves a list of LeaguePositionDto' do
@@ -40,7 +42,7 @@ describe League do
         expect(league_position.queue_type).not_to be(nil)
         expect(league_position.hot_streak).not_to be(nil)
         # mini_series not always present in a response
-        #expect(league_position.mini_series).not_to be(nil)
+        # expect(league_position.mini_series).not_to be(nil)
         expect(league_position.wins).not_to be(nil)
         expect(league_position.veteran).not_to be(nil)
         expect(league_position.losses).not_to be(nil)

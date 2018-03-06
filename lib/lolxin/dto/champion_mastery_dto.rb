@@ -18,14 +18,14 @@ module Lolxin
     private
 
     def initialize_with(data)
-      @chest_granted = data['chestGranted']
-      @champion_level = data['championLevel']
-      @champion_points = data['championPoints']
-      @champion_id = data['championId']
-      @player_id = data['playerId']
+      @chest_granted                    = data['chestGranted']
+      @champion_level                   = data['championLevel']
+      @champion_points                  = data['championPoints']
+      @champion_id                      = data['championId']
+      @player_id                        = data['playerId']
       @champion_points_until_next_level = data['championPointsUntilNextLevel']
       @champion_points_since_last_level = data['championPointsSinceLastLevel']
-      @last_play_time = data['lastPlayTime']
+      @last_play_time                   = data['lastPlayTime']
     end
   end
 end

@@ -31,7 +31,8 @@ module Lolxin
     ENDPOINTS.each do |ep|
       define_method(ep) do |options = @options|
         options[:version] = ApiVersion.const_get(ep.to_s.upcase)
-        name = ep.to_s.split('_').map(&:capitalize).join
+
+        name  = ep.to_s.split('_').map(&:capitalize).join
         klass = Object.const_get(name)
         klass.new(options)
       end

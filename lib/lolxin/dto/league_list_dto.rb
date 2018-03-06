@@ -14,9 +14,9 @@ module Lolxin
     private
 
     def initialize_with(data)
-      @tier = data['tier']
-      @queue = data['queue']
-      @name = data['name']
+      @tier    = data['tier']
+      @queue   = data['queue']
+      @name    = data['name']
       @entries = data['entries'].map { |entry| LeagueItemDto.new(entry) }
     end
   end

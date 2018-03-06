@@ -29,3 +29,4 @@ demo/
 TODO
 .env
 tags
+.byebug_history

@@ -24,20 +24,20 @@ module Lolxin
     private
 
     def initialize_with(data)
-      @rank = data['rank']
-      @queue_type = data['queueType']
-      @hot_streak = data['hotStreak']
-      @mini_series = MiniSeriesDto.new(data['miniSeries'])
-      @wins = data['wins']
-      @veteran = data['veteran']
-      @losses = data['losses']
-      @player_or_team_id = data['playerOrTeamId']
-      @league_name = data['leagueName']
+      @rank                = data['rank']
+      @queue_type          = data['queueType']
+      @hot_streak          = data['hotStreak']
+      @mini_series         = MiniSeriesDto.new(data['miniSeries'])
+      @wins                = data['wins']
+      @veteran             = data['veteran']
+      @losses              = data['losses']
+      @player_or_team_id   = data['playerOrTeamId']
+      @league_name         = data['leagueName']
       @player_or_team_name = data['playerOrTeamName']
-      @inactive = data['inactive']
-      @fresh_blood = data['freshBlood']
-      @tier = data['tier']
-      @league_points = data['leaguePoints']
+      @inactive            = data['inactive']
+      @fresh_blood         = data['freshBlood']
+      @tier                = data['tier']
+      @league_points       = data['leaguePoints']
     end
   end
 end

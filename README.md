@@ -15,7 +15,7 @@ Gem is now a WIP for v3
 | Endpoint          | Version |
 | ----------------- | ------- |
 | CHAMPION-MASTERY  | 3       |
-| CHAMPIONS         | 3       |
+| CHAMPION          | 3       |
 | LEAGUE            | 3       |
 | LOL-STATUS        | 3       |
 | MASTERIES         | N/A     |
