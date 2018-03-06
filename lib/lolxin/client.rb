@@ -10,8 +10,8 @@ module Lolxin
       :lol_static_data,
       :lol_status,
       :match,
-      :spectator
-      #summoner
+      :spectator,
+      :summoner
       #tournament_stub
       #tournament
     ]
