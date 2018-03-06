@@ -42,9 +42,9 @@ Or install it yourself as:
 
 ## Usage
 
-Refer to the source code for methods to hit the RIOT API.
-For the most part just set up your environment variable API_KEY that you get from
-the RIOT developer [console](https://developer.riotgames.com/)
+Refer to the source code for methods to hit the RIOT API. For the most part just set up your
+environment variable API_KEY that you get from the RIOT developer [console](https://developer.riotgames.com/)
+
 Quick example usage...
 ```
 client = Client.new(ENV['API_KEY'], region: :na1)
@@ -75,9 +75,10 @@ push git commits and tags, and push the `.gem` file to
 Change up the regions per spec file so that you don't run into rate limiting issues often.
 
 ## TODO
-- [] Add the remaining DTOs
-- [] Parse API responses with DTOs
-- [] TOURNAMENT/TOURNAMENT-STUB endpoints
+- Add the remaining DTOs
+- Parse API responses with DTOs
+- TOURNAMENT/TOURNAMENT-STUB endpoints
+- VCR record http responses?
 
 ## Contributing
 
