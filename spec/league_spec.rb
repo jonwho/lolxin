@@ -2,7 +2,7 @@ describe League do
   let(:client)     { Client.new(ENV['API_KEY'], region: :na1) }
   let(:league)     { client.league }
   let(:doublelift) { 20132258 }
-  # let(:league_id)     { FIND_ONE }
+  let(:league_id)  { "930faadc-f191-3fc0-b715-79804ef73cfc" }
 
   describe '#challenger_by_queue' do
     it 'retrieves a LeagueListDto' do
@@ -22,7 +22,10 @@ describe League do
     end
   end
 
-  # TODO: find a league_id to use
+  # TODO: 3/5/18 API is broken. API spec says it returns a LeagueListDTO
+  # but it only returns the following:
+  # `["name", "Taric's Shadehunters"]`
+  # leave untested for now
   # describe '#leagues' do
   #   it 'retrieves a list of LeagueListDto' do
   #     league_lists = league.leagues(league_id)

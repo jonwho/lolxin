@@ -5,9 +5,11 @@ module Lolxin
       losses
       target
       progress
+      data
     ))
 
     def initialize(data)
+      @data = data
       return nil if data.nil?
 
       initialize_with(data)

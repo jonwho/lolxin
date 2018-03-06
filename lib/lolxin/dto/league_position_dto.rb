@@ -15,9 +15,11 @@ module Lolxin
       fresh_blood
       tier
       league_points
+      data
     ))
 
     def initialize(data)
+      @data = data
       initialize_with(data)
     end
 

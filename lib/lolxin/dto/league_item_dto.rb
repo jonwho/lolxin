@@ -8,12 +8,14 @@ module Lolxin
       veteran
       losses
       player_or_team_name
+      player_or_team_id
       inactive
       fresh_blood
       league_points
     ))
 
     def initialize(data)
+      @data = data
       initialize_with(data)
     end
 
@@ -26,6 +28,7 @@ module Lolxin
       @wins                = data['wins']
       @veteran             = data['veteran']
       @losses              = data['losses']
+      @player_or_team_id   = data['playerOrTeamId']
       @player_or_team_name = data['playerOrTeamName']
       @inactive            = data['inactive']
       @fresh_blood         = data['freshBlood']

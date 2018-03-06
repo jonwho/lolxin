@@ -12,9 +12,11 @@ module Lolxin
       participants
       game_length
       game_queue_config_id
+      data
     ))
 
     def initialize(data)
+      @data = data
       initialize_with(data)
     end
 

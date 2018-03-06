@@ -7,9 +7,11 @@ module Lolxin
       active
       free_to_play
       id
+      data
     ))
 
     def initialize(data)
+      @data = data
       initialize_with(data)
     end
 

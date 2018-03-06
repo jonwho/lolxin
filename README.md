@@ -67,6 +67,9 @@ run `bundle exec rake release`, which will create a git tag for the version,
 push git commits and tags, and push the `.gem` file to
 [rubygems.org](https://rubygems.org).
 
+## Testing
+Change up the regions per spec file so that you don't run into rate limiting issues often.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at

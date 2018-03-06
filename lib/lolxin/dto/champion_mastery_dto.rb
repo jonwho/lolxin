@@ -9,9 +9,11 @@ module Lolxin
       champion_points_until_next_level
       champion_points_since_last_level
       last_play_time
+      data
     ))
 
     def initialize(data)
+      @data = data
       initialize_with(data)
     end
 
