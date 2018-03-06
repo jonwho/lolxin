@@ -8,11 +8,9 @@ module Lolxin
       :champion,
       :league,
       :lol_static_data,
-      :lol_status
-      #masteries
-      #match
-      #runes
-      #spectator
+      :lol_status,
+      :match,
+      :spectator
       #summoner
       #tournament_stub
       #tournament

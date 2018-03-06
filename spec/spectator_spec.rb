@@ -1,12 +1,12 @@
 describe Spectator do
-  let(:client)      { Client.new(ENV['API_KEY'], region: :na1) }
+  let(:client)      { Client.new(ENV['API_KEY'], region: :kr) }
   let(:spectator)   { client.spectator }
   let(:doublelift)  { 20132258 }
 
   describe '#by_summoner' do
     it 'retrieves current game info the summoner is currently playing in' do
       current_games = spectator.by_summoner(doublelift)
-      # retest with twitch streamers
+      # NOTE: test only works if the player is in an active game
       expect(current_games.values.any?(&:nil?)).to be(false)
     end
   end

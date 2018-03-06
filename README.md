@@ -19,9 +19,7 @@ Gem is now a WIP for v3
 | LEAGUE            | 3       |
 | LOL-STATIC-DATA   | 3       |
 | LOL-STATUS        | 3       |
-| MASTERIES         | N/A     |
-| MATCH             | N/A     |
-| RUNES             | N/A     |
+| MATCH             | 3       |
 | SPECTATOR         | 3       |
 | SUMMONER          | N/A     |
 | TOURNAMENT-STUB   | N/A     |

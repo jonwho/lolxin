@@ -1,7 +1,5 @@
 module Lolxin
-  class Spectator
-    BASE_ENDPOINT = "https://%{region}.api.riotgames.com/lol/spectator/%{version}"
-
+  class Spectator < Api
     CurrentGameInfo = FeaturedGameInfo = Struct.new(
       :game_id,
       :game_start_time,
@@ -64,24 +62,16 @@ module Lolxin
       :spell1id
     )
 
-    attr_accessor :conn
+    attr_accessor :endpoint
 
     def initialize(options = {})
-      region   = options[:region]
-      version  = options[:version]
-      api_key  = options[:api_key]
-      endpoint = BASE_ENDPOINT % { region: region, version: version }
-      @conn    = Faraday.new(endpoint, options[:conn_options]) do |faraday|
-        faraday.request(:url_encoded)
-        faraday.response(:logger)
-        faraday.adapter(Faraday.default_adapter)
-        faraday.params[:api_key] = api_key
-      end
+      super
+      @endpoint = "spectator/%{version}" % {version: @version}
     end
 
     def by_summoner(summoner_id)
-      endpoint = "active-games/by-summoner/#{summoner_id}"
-      res = conn.get(endpoint)
+      url = "#{endpoint}/active-games/by-summoner/#{summoner_id}"
+      res = conn.get(url)
       return res if res.status != 200
 
       current_game = JSON.parse(res.body)
@@ -89,7 +79,8 @@ module Lolxin
     end
 
     def featured_games
-      res = conn.get('featured-games')
+      url = "#{endpoint}/featured-games"
+      res = conn.get(url)
       return res if res.status != 200
 
       featured = JSON.parse(res.body)
