@@ -17,12 +17,12 @@ Gem is now a WIP for v3
 | CHAMPION-MASTERY  | 3       |
 | CHAMPION          | 3       |
 | LEAGUE            | 3       |
+| LOL-STATIC-DATA   | 3       |
 | LOL-STATUS        | 3       |
 | MASTERIES         | N/A     |
 | MATCH             | N/A     |
 | RUNES             | N/A     |
 | SPECTATOR         | 3       |
-| STATIC-DATA       | N/A     |
 | SUMMONER          | N/A     |
 | TOURNAMENT-STUB   | N/A     |
 | TOURNAMENT        | N/A     |
