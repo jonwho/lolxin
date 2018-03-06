@@ -11,7 +11,8 @@ module Lolxin
       :lol_status,
       :match,
       :spectator,
-      :summoner
+      :summoner,
+      :third_party_code
       #tournament_stub
       #tournament
     ]

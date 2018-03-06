@@ -9,8 +9,6 @@
 The not-so-smooth API wrapper for League of Legends. Pronounced lo-shin like
 lotion! Too clever I know.
 
-Gem is now a WIP for v3
-
 ## Supported endpoints
 | Endpoint          | Version |
 | ----------------- | ------- |
@@ -21,7 +19,8 @@ Gem is now a WIP for v3
 | LOL-STATUS        | 3       |
 | MATCH             | 3       |
 | SPECTATOR         | 3       |
-| SUMMONER          | N/A     |
+| SUMMONER          | 3       |
+| THIRD-PARTY-CODE  | ?       |
 | TOURNAMENT-STUB   | N/A     |
 | TOURNAMENT        | N/A     |
 
@@ -43,7 +42,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Document how to use
+Refer to the source code for methods to hit the RIOT API.
+For the most part just set up your environment variable API_KEY that you get from
+the RIOT developer [console](https://developer.riotgames.com/)
+Quick example usage...
+```
+client = Client.new(ENV['API_KEY'], region: :na1)
+client.lol_static_data.champions
+```
 
 ## Development
 
@@ -67,6 +73,11 @@ push git commits and tags, and push the `.gem` file to
 
 ## Testing
 Change up the regions per spec file so that you don't run into rate limiting issues often.
+
+## TODO
+- [] Add the remaining DTOs
+- [] Parse API responses with DTOs
+- [] TOURNAMENT/TOURNAMENT-STUB endpoints
 
 ## Contributing
 

@@ -8,6 +8,7 @@ module Lolxin
     MATCH            = 'v3'
     SPECTATOR        = 'v3'
     SUMMONER         = 'v3'
+    THIRD_PARTY_CODE = 'v3'
     #TOURNAMENT_STUB  = 'v3'
     #TOURNAMENT       = 'v3'
   end
